@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Usine Clips - Connect TikTok</title>
+<style>
+  :root { --bg:#0f0f12; --card:#1b1b21; --text:#f2f2f5; --muted:#a0a0ab; --accent:#fe2c55; --line:#2c2c35; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.5 system-ui, -apple-system, sans-serif; }
+  header { padding:20px 16px; border-bottom:1px solid var(--line); }
+  header b { font-size:20px; }
+  main { max-width:620px; margin:40px auto; padding:0 16px; }
+  .card { background:var(--card); border-radius:14px; padding:28px; }
+  h1 { font-size:24px; margin:0 0 10px; }
+  p, li { color:var(--muted); }
+  ul { padding-left:20px; }
+  a.btn { display:inline-flex; align-items:center; gap:10px; margin-top:18px; background:var(--accent); color:#fff;
+          text-decoration:none; border-radius:10px; padding:14px 22px; font-size:17px; font-weight:600; }
+  small { display:block; margin-top:22px; color:var(--muted); }
+  small a { color:var(--text); }
+</style>
+</head>
+<body>
+<header><b>Usine Clips</b></header>
+<main>
+  <div class="card">
+    <h1>Connect your TikTok account</h1>
+    <p>Usine Clips publishes the short videos you edit in Usine Clips to your own TikTok account.</p>
+    <ul>
+      <li><b>user.info.basic</b>: show which account is connected</li>
+      <li><b>video.upload</b>: send your finished videos to TikTok</li>
+      <li><b>video.publish</b>: post them with your caption and hashtags</li>
+    </ul>
+    <a class="btn" id="go" href="#">Continue with TikTok</a>
+    <small>By continuing you agree to our <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>.
+      You can disconnect at any time from TikTok settings.</small>
+  </div>
+</main>
+<script>
+  const p = new URLSearchParams({
+    client_key: "sbawryovhtma339auk",
+    scope: "user.info.basic,video.upload,video.publish",
+    response_type: "code",
+    redirect_uri: "https://iandesbordes1234-commits.github.io/usine-clips-site/callback.html",
+    state: "gta-" + Math.random().toString(36).slice(2, 10)
+  });
+  document.getElementById("go").href = "https://www.tiktok.com/v2/auth/authorize/?" + p.toString();
+</script>
+</body>
+</html>
